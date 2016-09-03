@@ -135,8 +135,8 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 
 // Deletes an entity from state
 func (t *SimpleChaincode) setupEvent(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-	fmt.Printf("enter setupEvent.\n")
-	if len(args) != 1 {
+	fmt.Printf("##########enter setupEvent.\n")
+	if len(args) != 2 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 1")
 	}
 
