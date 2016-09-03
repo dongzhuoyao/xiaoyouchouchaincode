@@ -144,7 +144,7 @@ func (t *SimpleChaincode) setupEvent(stub shim.ChaincodeStubInterface, args []st
 	eventJson := args[1]
 
 	// Write the state back to the ledger
-	err = stub.PutState(eventName, []byte(eventJson))
+	err := stub.PutState(eventName, []byte(eventJson))
 	if err != nil {
 		return nil, err
 	}
@@ -213,16 +213,16 @@ func (t *SimpleChaincode) queryEvent(stub shim.ChaincodeStubInterface, args []st
 	// Get the state from the ledger
 	EventJSON, err := stub.GetState(eventName)
 	if err != nil {
-		jsonResp := "{\"Error\":\"Failed to get state for " + A + "\"}"
+		jsonResp := "{\"Error\":\"Failed to get state for " + eventName + "\"}"
 		return nil, errors.New(jsonResp)
 	}
 
 	if EventJSON == nil {
-		jsonResp := "{\"Error\":\"Nil EventJSON for " + A + "\"}"
+		jsonResp := "{\"Error\":\"Nil EventJSON for " + eventName + "\"}"
 		return nil, errors.New(jsonResp)
 	}
 
-	jsonResp := String(jsonResp)
+	jsonResp := String(EventJSON)
 	fmt.Printf("QueryEVENT Response:%s\n", jsonResp)
 	return EventJSON, nil
 
