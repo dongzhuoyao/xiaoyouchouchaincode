@@ -222,7 +222,7 @@ func (t *SimpleChaincode) queryEvent(stub shim.ChaincodeStubInterface, args []st
 		return nil, errors.New(jsonResp)
 	}
 
-	jsonResp := String(EventJSON)
+	jsonResp := EventJSON
 	fmt.Printf("QueryEVENT Response:%s\n", jsonResp)
 	return EventJSON, nil
 
