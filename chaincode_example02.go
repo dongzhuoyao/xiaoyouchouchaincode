@@ -76,7 +76,7 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 		// Deletes an entity from its state
 		return t.delete(stub, args)
 	}
-	if function == "setupEvent" {
+	if function == "setupevent" {
 		// setup_event an entity from its state
 		return t.setupEvent(stub, args)
 	}
